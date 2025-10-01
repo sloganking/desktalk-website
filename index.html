@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeskTalk - Voice-to-Text for Windows</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .demo-video {
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .demo-video video {
+            width: 100%;
+            display: block;
+        }
+
+        .cta-section {
+            margin: 50px 0;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .version-info {
+            margin-top: 15px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            text-align: left;
+        }
+
+        .feature {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .pricing {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .pricing h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+
+        .price-note {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .steps {
+            text-align: left;
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .steps h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .step {
+            margin: 20px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .step::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .requirements {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .requirements h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .requirements li {
+            padding: 5px 0;
+            color: #856404;
+        }
+
+        .requirements li::before {
+            content: "⚠️ ";
+            margin-right: 8px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            color: #888;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .download-btn {
+                padding: 15px 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 DeskTalk</h1>
+        <p class="tagline">Voice-to-Text Transcription for Windows</p>
+
+        <p style="font-size: 1.2rem; margin: 20px 0; color: #555;">
+            Hold a button. Speak. Release. Your words appear instantly.
+        </p>
+
+        <div class="demo-video">
+            <video autoplay loop muted playsinline>
+                <source src="https://github.com/sloganking/desk-talk/assets/16965931/e5da605b-3a9d-4394-b4ec-a3de65605a65" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="cta-section">
+            <a href="https://github.com/sloganking/desk-talk/releases/latest/download/DeskTalk_0.2.0_x64-setup.exe" class="download-btn">
+                📥 Download for Windows
+            </a>
+            <div class="version-info">
+                Version 0.2.0 • Windows 10/11 (64-bit) • 4.3 MB
+            </div>
+        </div>
+
+        <div class="pricing">
+            <h2>Simple Pricing</h2>
+            <div class="price">$100</div>
+            <p class="price-note">One-time purchase • Use on up to 3 devices • No subscription</p>
+            <p style="margin-top: 20px; color: #666;">
+                Free to download and install. Activate your license from within the app after purchase.
+            </p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>⚡ Fast & Accurate</h3>
+                <p>Powered by OpenAI's Whisper API for industry-leading transcription quality.</p>
+            </div>
+            <div class="feature">
+                <h3>🔒 Works Offline</h3>
+                <p>Option to use local AI models. No internet required after initial setup.</p>
+            </div>
+            <div class="feature">
+                <h3>⌨️ Any Application</h3>
+                <p>Works everywhere - email, documents, chat, code editors. Anywhere you can type.</p>
+            </div>
+            <div class="feature">
+                <h3>🎯 Push-to-Talk</h3>
+                <p>Customizable hotkey. Hold to record, release to transcribe. Simple and intuitive.</p>
+            </div>
+        </div>
+
+        <div class="steps">
+            <h2>Quick Start Guide</h2>
+            
+            <div class="step">
+                <h3>1. Download & Install</h3>
+                <p>Click the download button above and run the installer.</p>
+            </div>
+
+            <div class="step">
+                <h3>2. Install FFmpeg</h3>
+                <p>Required for audio processing. Run: <code style="background: #e9ecef; padding: 2px 8px; border-radius: 3px;">winget install Gyan.FFmpeg</code></p>
+            </div>
+
+            <div class="step">
+                <h3>3. Get Your License</h3>
+                <p>Open DeskTalk → License tab → Click "Buy License" → Complete payment → Check email for license key.</p>
+            </div>
+
+            <div class="step">
+                <h3>4. Activate & Configure</h3>
+                <p>Paste your license key, add OpenAI API key (or choose local model), set your push-to-talk key.</p>
+            </div>
+
+            <div class="step">
+                <h3>5. Start Talking!</h3>
+                <p>Hold your push-to-talk key, speak, release. Your text appears instantly.</p>
+            </div>
+        </div>
+
+        <div class="requirements">
+            <h3>⚠️ Important Notes</h3>
+            <ul>
+                <li><strong>Windows Defender Warning:</strong> You may see "Unknown Publisher" when installing. This is normal for new software without a code signing certificate. Click "More info" → "Run anyway".</li>
+                <li><strong>FFmpeg Required:</strong> Must be installed separately. See step 2 above.</li>
+                <li><strong>OpenAI API Key:</strong> Optional, but recommended for best accuracy. Get one at <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com/api-keys</a></li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>Built by <a href="https://github.com/sloganking" target="_blank">@sloganking</a></p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/sloganking/desk-talk" target="_blank">View on GitHub</a> • 
+                <a href="https://github.com/sloganking/desk-talk/issues" target="_blank">Support</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85rem;">
+                © 2025 SLKing, LLC • <a href="https://github.com/sloganking/desk-talk/blob/master/LICENSE" target="_blank">License</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+
